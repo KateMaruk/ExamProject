@@ -1,0 +1,33 @@
+#LoginPage
+1. LoginPage.Login.input = xpath(".//input[@name = 'user']")
+2. LoginPage.Password.input = xpath(".//input[@type = 'password']")
+3. LoginPage.LoginButton.button = xpath(".//input[@value = 'Login']")
+4. LoginPage.CreateAccount.link = xpath (".//a[@href = 'register']") ; (".//a[text() = 'Create account']") ; (".//a[contains(text(),'Create account')]"
+5. LoginPage.ForgotPassword.link = xpath (".//a[contains(text(), 'password')]")
+
+#HomePage
+1. Homepage.AddNew.link = xpath(".//a[@href = 'edit.php']")
+2. Homepage.Groups.link = xpath(".//a[@href = 'group.php']")
+3. Homepage.home.link = xpath(".//a[text() = 'home']")
+4. Homepage.checkbox = xpath(".//input[@type = 'checkbox']")
+5. Homepage.Delete.button = xpath(".//input[@value = 'Delete']")
+6. Homepage.Logout.link = xpath(".//a[contains(text(), 'Logout')]")
+
+
+#GroupsPage
+1. GroupsPage.NewGroup.button = xpath (".//input[@value = 'New group']")
+2. GroupsPage.DeleteGroup.button = xpath (".//form//input[2]")   /  ".//input[@name = 'delete']"
+3. GroupsPage.EditGroup.button = xpath (".//input[@name = 'edit']")
+
+#GroupEditorPage
+1. GroupEditorPage.GroupName.input = xpath (".//input[@name = 'group_name']")
+2. GroupEditorPage.GroupHeader.textarea = xpath (".//textarea[@name = 'group_header']") ; (".//textarea[1]")
+3. GroupEditorPage.GroupFooter.textarea = xpath (".//textarea[@name = 'group_footer']")
+4. GroupEditorPage.EnterInfo.button = xpath (".//input[@name = 'submit']")
+
+#NewAddressEditorPage
+1. NewAddressEditorPage.firstName.input = xpath(".//input[@name = 'firstname']")
+2. NewAddressEditorPage. middleName.input = xpath(".//input[@name = 'middlename']")
+3. NewAddressEditorPage.lastName.input = xpath (".//input[@name = 'lastname']")
+4. NewAddressEditorPage.Mobile.input = xpath (".//input[@name = 'mobile']")
+5. NewAddressEditorPage.Enter.button = xpath (".//input[@value = 'Enter']")
