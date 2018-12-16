@@ -12,6 +12,6 @@ public class LogOut extends ParentTest {
         homePage.checkUrl();
         homePage.clickOnLogOutLink();
 
-        Assert.assertTrue("Button 'Login' is not present on page",loginPage.isButtonLogInDisplayed());
+        checkExpectedResult("Button 'Login' is not present on page",loginPage.isButtonLogInDisplayed());
     }
 }

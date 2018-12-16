@@ -3,14 +3,12 @@ package addresses;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import parentTest.ParentTest;
 
 public class AddNewAddress extends ParentTest {
 
-    String firstName = "KateName";
-    String lastName = "MarukName";
+    String firstName = "Kate";
+    String lastName = "Maruk";
     String phoneNumber = "+380969476125";
 
 
@@ -18,7 +16,7 @@ public class AddNewAddress extends ParentTest {
     public void addNewAddress(){
         loginPage.validLogInWithCredentials();
         homePage.checkUrl();
-        homePage.deleteContactUntilPresent(phoneNumber);
+        homePage.deleteAddressUntilPresent(lastName, firstName);
         homePage.clickOnAddNewLink();
         contactEditorPage.checkUrl();
         contactEditorPage.enterFirstName(firstName);
@@ -26,12 +24,12 @@ public class AddNewAddress extends ParentTest {
         contactEditorPage.enterPhoneNuumber(phoneNumber);
         contactEditorPage.clickOnEnterButton();
 
-        Assert.assertTrue("", homePage.isAddressDisplayed());
+        checkExpectedResult("New Address was not created", homePage.isAddressDisplayed(lastName));
     }
 
     @After
     public void deletingAddress(){
-        homePage.deleteContactUntilPresent(phoneNumber);
+        homePage.deleteAddressUntilPresent(lastName, firstName);
 
     }
 }

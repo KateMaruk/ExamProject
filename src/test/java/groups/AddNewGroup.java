@@ -1,7 +1,6 @@
 package groups;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Test;
 import parentTest.ParentTest;
 
@@ -26,13 +25,12 @@ public class AddNewGroup extends ParentTest {
         editGroupPage.clickOnEnterInfoButton();
         groupPage.clickOnLinkGroupPage();
 
-        Assert.assertTrue("New group was not created", groupPage.groupIsDisplayedInList(groupName));
+        checkExpectedResult("New group was not created", groupPage.groupIsDisplayedInList(groupName));
 
     }
 
     @After
     public void groupDeleting(){
-
         groupPage.deleteGroupUntilPresent(groupName);
     }
 }

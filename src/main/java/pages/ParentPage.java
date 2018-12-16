@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import libs.WorkWithElements;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
@@ -24,7 +25,7 @@ abstract public class ParentPage {
 
         return webDriver.getCurrentUrl();
     }
-
+    @Step
     public void checkUrl(){
         try{
             Assert.assertEquals("Url is not expected", expectedUrl, getCurrencyUrl());

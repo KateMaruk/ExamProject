@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -34,6 +35,7 @@ public class GroupPage extends ParentPage {
 //            }
 //        }
 
+    @Step
     public void deleteGroupUntilPresent(String groupName) {
             int counter = 0;
 
@@ -48,49 +50,49 @@ public class GroupPage extends ParentPage {
                 }
             }
     }
-
+    @Step
     public void clickOnLinkGroupPage() {
-
         workWithElements.clickOnElement(groupPageLink);
     }
 
-
+    @Step
     public void selectCheckboxWithGroupName(String groupName) {
         workWithElements.clickOnElement(getCheckBoxWithName(groupName));
         }
-
+    @Step
     private WebElement getCheckBoxWithName(String groupName) {
 
         return webDriver.findElement(By.xpath(".//input[@type = 'checkbox'][@title = 'Select (" + groupName + ")']"));
 
     }
-
+     @Step
     private void clickOnButtonDeleteGroup() {
 
         workWithElements.clickOnElement(deleteGroupButton);
     }
-
+    @Step
     public boolean groupIsDisplayedInList(String groupName) {
          return workWithElements.isElementDisplayed(By.xpath(".//*[text() = '" + groupName + "']"));
 
-    }
 
+    }
+    @Step
     public void clickOnNewGroupButton() {
         workWithElements.clickOnElement(newGroupButton);
     }
-
+    @Step
     public void clickOnEditGroupButton() {
 
         workWithElements.clickOnElement(editGroupButton);
     }
-
+    @Step
     public void createGroupIfNotExist(String groupName) {
 
         if (!groupIsDisplayedInList(groupName)){
             createGroupForEditing(groupName);
         }
     }
-
+    @Step
     public void createGroupForEditing(String groupName){
         clickOnNewGroupButton();
         EditGroupPage editGroupPage = new EditGroupPage(webDriver);
@@ -99,5 +101,6 @@ public class GroupPage extends ParentPage {
         editGroupPage.clickOnGroupsLink();
 
     }
+
 
 }
