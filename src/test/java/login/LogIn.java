@@ -13,7 +13,7 @@ public class LogIn extends ParentTest {
         loginPage.enterPassword("secret");
         loginPage.clickOnButtonLogin();
 
-        Assert.assertTrue("Link 'Logout' is not displayed on page", homePage.isLogoutLinkDisplayed());
+        checkExpectedResult("Link 'Logout' is not displayed on page", homePage.isLogoutLinkDisplayed());
     }
 
 
@@ -21,7 +21,7 @@ public class LogIn extends ParentTest {
     public void logInToApp(){
         loginPage.logInWithCredentials("admin", "secret");
 
-        Assert.assertTrue("Link 'Logout' is not displayed on page", homePage.isLogoutLinkDisplayed());
+        checkExpectedResult("Link 'Logout' is not displayed on page", homePage.isLogoutLinkDisplayed());
     }
 
 

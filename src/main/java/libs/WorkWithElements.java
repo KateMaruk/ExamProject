@@ -3,17 +3,22 @@ package libs;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WorkWithElements {
     WebDriver webDriver;
-
     Logger logger = Logger.getLogger(getClass());
+    WebDriverWait wait7, wait10;
+
 
     public WorkWithElements(WebDriver webDriver) {
-
         this.webDriver = webDriver;
+        wait7 = new WebDriverWait(webDriver, 7);
+        wait10 = new WebDriverWait(webDriver, 10);
     }
 
     public void enterTextIntoElement(WebElement element, String text){
@@ -31,6 +36,7 @@ public class WorkWithElements {
 
     public  void clickOnElement(WebElement element){
         try{
+            wait7.until(ExpectedConditions.elementToBeClickable(element));
             element.click();
 
         }catch(Exception e){
@@ -54,6 +60,16 @@ public class WorkWithElements {
          return isElementDisplayed(webDriver.findElement(by));
     }catch (Exception e){
         return false;
+        }
+    }
+
+    public void clickOkInAlert() {
+        try {
+            wait10.until(ExpectedConditions.alertIsPresent());
+            webDriver.switchTo().alert().accept();
+
+        }catch (NoAlertPresentException e) {
+            logger.info("Can not work with Alert window!");
         }
     }
 

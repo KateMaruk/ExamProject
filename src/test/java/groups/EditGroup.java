@@ -1,7 +1,6 @@
 package groups;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Test;
 import parentTest.ParentTest;
 
@@ -22,16 +21,14 @@ public class EditGroup extends ParentTest {
         editGroupPage.enterEditedGroupName(editedGroupName);
         editGroupPage.clickOnUpdateButton();
         groupPage.clickOnLinkGroupPage();
-        groupPage.groupIsDisplayedInList(editedGroupName);
 
-        Assert.assertTrue("Group was not edited!", groupPage.groupIsDisplayedInList(editedGroupName));
 
+        checkExpectedResult("Group was not edited!", groupPage.groupIsDisplayedInList(editedGroupName));
     }
 
     @After
     public void groupDeleting() {
         groupPage.deleteGroupUntilPresent(editedGroupName);
-
     }
 }
 
